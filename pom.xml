@@ -128,6 +128,7 @@
                 <configuration>
                     <descriptors>
                         <descriptor>src/assembly/distribution-windows.xml</descriptor>
+                        <descriptor>src/assembly/distribution-windows-with-jre.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>
