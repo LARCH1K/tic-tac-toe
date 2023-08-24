@@ -17,13 +17,7 @@
 
 package academy.devonline.tictactoe;
 
-import academy.devonline.tictactoe.component.CellNumberConverter;
-import academy.devonline.tictactoe.component.CellVerifier;
-import academy.devonline.tictactoe.component.ComputerMove;
-import academy.devonline.tictactoe.component.DataPrinter;
-import academy.devonline.tictactoe.component.Game;
-import academy.devonline.tictactoe.component.UserMove;
-import academy.devonline.tictactoe.component.WinnerVerifier;
+import academy.devonline.tictactoe.component.*;
 import academy.devonline.tictactoe.component.keypad.DesktopNumericKeypadCellNumberConverter;
 import academy.devonline.tictactoe.model.Player;
 
@@ -36,14 +30,11 @@ import static academy.devonline.tictactoe.model.Sign.*;
 public final class Launcher {
 
     public static void main(final String[] args) {
+
+        final GameFactory gameFactory = new GameFactory(args);
+
         final CellNumberConverter cellNumberConverter = new DesktopNumericKeypadCellNumberConverter();
-        final Game game = new Game(
-                new DataPrinter(cellNumberConverter),
-                new Player(X, new UserMove(cellNumberConverter)),
-                new Player(O, new ComputerMove()),
-                new WinnerVerifier(),
-                new CellVerifier(),
-                true);
+        final Game game = gameFactory.create();
         game.play();
     }
 }
