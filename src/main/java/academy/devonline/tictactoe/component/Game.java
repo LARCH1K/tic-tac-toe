@@ -18,8 +18,12 @@
 package academy.devonline.tictactoe.component;
 
 import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.Player;
 
 import java.util.Random;
+
+import static academy.devonline.tictactoe.model.Sign.O;
+import static academy.devonline.tictactoe.model.Sign.X;
 
 /**
  * @author devonline
@@ -53,37 +57,32 @@ public class Game {
         System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");
         dataPrinter.printMappingTable();
         final GameTable gameTable = new GameTable();
-        if (new Random().nextBoolean()) {
+        /*if (new Random().nextBoolean()) {
             computerMove.make(gameTable);
             dataPrinter.printGameTable(gameTable);
-        }
+        }*/
         final Move[] moves = {userMove, computerMove};
+        final Player[] players = {new Player(X, userMove), new Player(O, computerMove)};
         while (true) {
-            boolean gameOver = false;
-            for (final Move move : moves) {
-                move.make(gameTable);
+            for (final Player player : players) {
+                player.makeMove(gameTable);
                 dataPrinter.printGameTable(gameTable);
-                if (move instanceof UserMove) {
-                    if (winnerVerifier.isUserWin(gameTable)) {
-                        System.out.println("YOU WIN!");
-                        gameOver = true;
-                        break;
-                    }
-                } else {
-                    if (winnerVerifier.isComputerWin(gameTable)) {
-                        System.out.println("COMPUTER WIN!");
-                        gameOver = true;
-                        break;
-                    }
+
+                if (winnerVerifier.isWinner(gameTable,player)) {
+                    System.out.println(player +" WIN!");
+                    printGameOver();
+                    return;
                 }
                 if (cellVerifier.allCellsFilled(gameTable)) {
                     System.out.println("Sorry, DRAW!");
-                    gameOver = true;
-                    break;
+                    printGameOver();
+                    return;
                 }
             }
-            if (gameOver) break;
         }
+    }
+
+    private void printGameOver() {
         System.out.println("GAME OVER!");
     }
 }
