@@ -5,7 +5,6 @@ import academy.devonline.tictactoe.model.Player;
 import academy.devonline.tictactoe.model.PlayerType;
 
 
-import static academy.devonline.tictactoe.model.PlayerType.COMPUTER;
 import static academy.devonline.tictactoe.model.PlayerType.USER;
 import static academy.devonline.tictactoe.model.Sign.O;
 import static academy.devonline.tictactoe.model.Sign.X;
@@ -39,7 +38,7 @@ public class GameFactory {
         }
         final boolean canSecondPlayerMakeFirstMove = player1Type != player2Type;
         return new Game(
-                new DataPrinter(cellNumberConverter),
+                new DataPrinterImpl(cellNumberConverter),
                 player1,
                 player2,
                 new WinnerVerifier(),
