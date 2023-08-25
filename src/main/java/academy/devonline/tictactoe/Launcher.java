@@ -18,10 +18,8 @@
 package academy.devonline.tictactoe;
 
 import academy.devonline.tictactoe.component.*;
-import academy.devonline.tictactoe.component.keypad.DesktopNumericKeypadCellNumberConverter;
-import academy.devonline.tictactoe.model.Player;
-
-import static academy.devonline.tictactoe.model.Sign.*;
+import academy.devonline.tictactoe.component.console.CellNumberConverter;
+import academy.devonline.tictactoe.component.console.keypad.DesktopNumericKeypadCellNumberConverter;
 
 /**
  * @author devonline

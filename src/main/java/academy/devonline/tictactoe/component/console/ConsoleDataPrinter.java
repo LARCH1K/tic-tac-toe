@@ -1,8 +1,7 @@
 package academy.devonline.tictactoe.component.console;
 
-import academy.devonline.tictactoe.component.CellNumberConverter;
-import academy.devonline.tictactoe.model.Cell;
-import academy.devonline.tictactoe.model.GameTable;
+import academy.devonline.tictactoe.model.game.Cell;
+import academy.devonline.tictactoe.model.game.GameTable;
 
 public class ConsoleDataPrinter implements academy.devonline.tictactoe.component.DataPrinter {
 
