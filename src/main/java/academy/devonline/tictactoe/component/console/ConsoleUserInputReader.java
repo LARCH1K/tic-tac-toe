@@ -19,7 +19,6 @@ public class ConsoleUserInputReader implements academy.devonline.tictactoe.compo
     @Override
     public Cell getUserInput() {
         while (true) {
-            //System.out.println("Please type number between 1 and 9:");
             dataPrinter.printInfoMessage("Please type number between 1 and 9:");
             final String userInput = new Scanner(System.in).nextLine();
             if (userInput.length() == 1) {
