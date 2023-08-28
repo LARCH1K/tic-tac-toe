@@ -46,7 +46,9 @@ public class Game {
                 final Player player1,
                 final Player player2,
                 final WinnerVerifier winnerVerifier,
-                final CellVerifier cellVerifier, final GameOverHandler gameOverHandler, final boolean canSecondPlayerMakeFirstMove) {
+                final CellVerifier cellVerifier,
+                final GameOverHandler gameOverHandler,
+                final boolean canSecondPlayerMakeFirstMove) {
         this.dataPrinter = dataPrinter;
         this.player1 = player1;
         this.player2 = player2;
