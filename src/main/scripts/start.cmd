@@ -51,6 +51,5 @@ if not defined JAVA_CMD (
     %JAVA_CMD% -jar ${project.build.finalName}.jar %*
     set RETURN_CODE=0
 )
-pause
 @rem -------------------------------------------------------------------------------------------------------------------
 exit /b %RETURN_CODE%
